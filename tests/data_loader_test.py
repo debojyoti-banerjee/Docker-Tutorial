@@ -8,3 +8,5 @@ try:
     print(target)
 except dataLoaderError as e:
     print(e.message)
+except Exception as e:
+    print(str(e))

@@ -8,6 +8,6 @@ class dataLoaderError(dockerML):
         super().__init__(f"[DataLoaderError]: {message}")
         
         
-class predictorError(dockerML):
+class preprocessorError(dockerML):
     def __init__(self,message):
-        super().__init__(message)
+        super().__init__(f"[PreprocessorError]: {message}")
