@@ -11,3 +11,7 @@ class dataLoaderError(dockerML):
 class preprocessorError(dockerML):
     def __init__(self,message):
         super().__init__(f"[PreprocessorError]: {message}")
+        
+class modelError(dockerML):
+    def __init__(self,message):
+        super().__init__(f"[modelError]: {message}")
