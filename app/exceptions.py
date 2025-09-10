@@ -19,3 +19,7 @@ class modelError(dockerML):
 class trainerError(dockerML):
     def __init__(self,message):
         super().__init__(f"[trainerError]: {message}")
+        
+class predictorError(dockerML):
+    def __init__(self,message):
+        super().__init__(f"[predictorError]: {message}")
