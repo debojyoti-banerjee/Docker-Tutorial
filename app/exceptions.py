@@ -15,3 +15,7 @@ class preprocessorError(dockerML):
 class modelError(dockerML):
     def __init__(self,message):
         super().__init__(f"[modelError]: {message}")
+        
+class trainerError(dockerML):
+    def __init__(self,message):
+        super().__init__(f"[trainerError]: {message}")
