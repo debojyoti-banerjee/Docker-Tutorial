@@ -1,0 +1,6 @@
+if u want to build images type : docker build .
+if u want to run container type : docker run -d -p some_port_number:expose_port image_id
+If u want to see images type : docker image ls / docker images
+if u want to containers that are running type : docker ps
+if u want to containers that are running or exited type : docker ps -a 
+if u want to stop a container type : docker stop container_name
