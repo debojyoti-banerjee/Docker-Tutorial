@@ -4,3 +4,11 @@ If u want to see images type : docker image ls / docker images
 if u want to containers that are running type : docker ps
 if u want to containers that are running or exited type : docker ps -a 
 if u want to stop a container type : docker stop container_name
+if u want to give name to container type : docker run -d --name "name_of_container" -p some_port_number:expose_port image_id
+if u want to remove container when stopped type : docker run -d --name "name_of_container" --rm -p some_port_number:expose_port image_id
+if u want to give name to image type : docker build -t name_of_image .
+if u want to pull docker images type : docker pull name_of_the_image
+if u want image to push to docker hub type : docker push name_of_the_image
+if u want to rename a image type : docker tag old_name:new_name
+if u want to create volume type : docker volume create volume_name
+if u want to mount volume type : docker run -d --rm -v volume_name:/folder_name/ --name name_of_container -p local_port:docker_port image_name
