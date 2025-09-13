@@ -3,8 +3,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 
 import streamlit as st
-from app.predictor import predictor
 from app.trainer import trainer
+import requests
 
 st.title("Iris Predictor App")
 
@@ -22,10 +22,13 @@ petal_width=st.text_input("Petal-Width")
 
 if st.button("Predict"):
     try:
-        prediction=predictor()
         features=[sepal_length,sepal_width,petal_length,petal_width]
-        result=prediction.predict(features)
-        st.success(f"Predicted class is {result}")
+        response=requests.post("http://localhost:5000/predict",json={"features":features},timeout=5)
+        if response.status_code==200:
+            result=response.json()["prediction"]
+            st.success(f"Predicted class : {result}")
+        else:
+            st.error(f"Error: {response.text}")
     except Exception as e:
         print(str(e))
-        st.error("Some Error occured")
+        st.error(f"Request failed: {e}")
