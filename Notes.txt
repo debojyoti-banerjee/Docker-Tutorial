@@ -9,6 +9,12 @@ if u want to remove container when stopped type : docker run -d --name "name_of_
 if u want to give name to image type : docker build -t name_of_image .
 if u want to pull docker images type : docker pull name_of_the_image
 if u want image to push to docker hub type : docker push name_of_the_image
-if u want to rename a image type : docker tag old_name:new_name
+if u want to rename a image type : docker tag old_name new_name:version
 if u want to create volume type : docker volume create volume_name
 if u want to mount volume type : docker run -d --rm -v volume_name:/folder_name/ --name name_of_container -p local_port:docker_port image_name
+if u want to create network type: docker network create network_name
+if u want to add container to a network : docker run -d --rm -v volume_name:/folder_name/ --name name_of_container -p local_port:docker_port --network network_name image_name
+if u want to create communication between containers type: http://container_name:port/endpoint
+if u want to run docker compose type : docker-compose up
+if u want to stop docker compose type : docker-compose down
+if u want to run a specific service type : docker-compose run name_of_the_service
