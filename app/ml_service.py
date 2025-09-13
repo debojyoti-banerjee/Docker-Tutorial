@@ -8,6 +8,10 @@ prediction=predictor()
 class features(BaseModel):
     features:list[float]
     
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+    
 @app.post("/predict")
 def predict(data:features):
     try:

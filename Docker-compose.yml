@@ -1,0 +1,25 @@
+version: '2.4'
+services:
+  ml-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.ml
+    container_name: ml-service
+    healthcheck:
+      test: ["CMD","curl","-f","http://localhost:5000/health"]
+      interval: 10s
+      timeout: 30s
+      retries: 5
+      start_period: 10s
+  
+  ui-service:
+    build: 
+      context: .
+      dockerfile: Dockerfile.ui
+    container_name: ui-service
+    ports:
+      - "8501:8501"
+    depends_on:
+      ml-service:
+        condition: service_healthy
+
