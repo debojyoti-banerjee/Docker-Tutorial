@@ -23,7 +23,7 @@ petal_width=st.text_input("Petal-Width")
 if st.button("Predict"):
     try:
         features=[sepal_length,sepal_width,petal_length,petal_width]
-        response=requests.post("http://localhost:5000/predict",json={"features":features},timeout=5)
+        response=requests.post("http://ml-service:5000/predict",json={"features":features},timeout=5)
         if response.status_code==200:
             result=response.json()["prediction"]
             st.success(f"Predicted class : {result}")

@@ -1,0 +1,17 @@
+FROM python:3.11.4
+
+WORKDIR /ui 
+
+COPY requirements.txt .
+
+RUN  pip install -r requirements.txt
+
+COPY ui/ ./ui
+
+COPY model.pkl .
+
+COPY app/ ./app
+
+EXPOSE 8501
+
+CMD ["streamlit","run","ui/streamlit_app.py"]
